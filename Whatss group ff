@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>System Access</title>
+<style>
+body{
+background:black;
+color:#00ff00;
+font-family:monospace;
+padding:20px;
+font-size:20px;
+}
+#text{
+white-space:pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<div id="text"></div>
+
+<script>
+let messages = [
+"Connecting to device...",
+"Access granted ✔",
+"Scanning phone storage...",
+"Reading Facebook data...",
+"Reading Gmail messages...",
+"Uploading data to server...",
+"",
+"⚠ WARNING!",
+"Your Phone, Facebook and Gmail are Hacked!",
+"",
+];
+
+let i = 0;
+let j = 0;
+let current = "";
+let speed = 40;
+
+function type(){
+if(i < messages.length){
+if(j < messages[i].length){
+current += messages[i].charAt(j);
+document.getElementById("text").innerText = current;
+j++;
+setTimeout(type,speed);
+}else{
+current += "\n";
+j = 0;
+i++;
+setTimeout(type,500);
+}
+}
+}
+
+type();
+</script>
+
+</body>
+</html>
